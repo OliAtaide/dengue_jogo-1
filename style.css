@@ -1,0 +1,65 @@
+:root {
+    --color1: #B96C2C;
+    --color2: #EAB95D;
+    --color3: #FFEDB5;
+    --color4: #ea9f44;
+    --color5: #F66B3B;
+}
+
+body {
+    background-color: var(--color3);
+}
+
+.navbar {
+    background-color: var(--color1);
+}
+
+.quiz-titulo {
+    background-color: var(--color2);
+}
+
+#final, .btn, .navbar {
+    color: white;
+}
+
+.container {
+    background-color: var(--color4);
+    height: 470px;
+}
+
+.btn {
+    border: 3px solid var(--color3);
+}
+
+.container, .btn{
+    border-radius: 12px;
+}
+
+.titulo {
+    border-radius: 12px 12px 0 0;
+    height: 100px;
+}
+
+.btn, .titulo{
+    background-color: var(--color5);
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.col .btn {
+    width: 360px;
+    height: 240px;
+}
+
+.questao {
+    padding: 0;
+}
+
+p {
+    font-size: 20px;
+}
+
+#final .btn {
+    bottom: 1em;
+    right: 1em;
+}
