@@ -55,13 +55,13 @@ var questoes = [
     }
 ]
 
+var acertos = 0;
 
 // Gerando as questoes
 questoes.forEach(function callback(q, i) {
-    console.log(i + ':' + q.questao)
     $('main').append(
         `
-        <div id="questao-` + (i+1) + `" class="questao container my-5 text-center" data-valor="` + (i+1) + `">
+        <div id="questao-` + (i + 1) + `" class="questao container my-5 text-center" data-valor="` + (i + 1) + `">
             <div class="titulo d-flex justify-content-center align-items-center">
                 <span>` + q.questao + `</span>
             </div>
@@ -82,11 +82,11 @@ questoes.forEach(function callback(q, i) {
                 </div>
             </div>
         </div>
-        <div id="resultado-questao-` + (i+1) + `" class="resultado container my-5 py-5 px-4 d-none flex-column" id="p3">
+        <div id="resultado-questao-` + (i + 1) + `" class="resultado container my-5 py-5 px-4 d-none flex-column" id="p3">
             <div class="div mb-auto">
                 <h2 class="text-center">
                     <strong>
-                        `+ q.resposta +`
+                        `+ q.resposta + `
                     </strong>
                 </h2>
                 <p class="py-4">
@@ -94,10 +94,10 @@ questoes.forEach(function callback(q, i) {
                 </p>
             </div>
             <div class="d-flex">
-                <button class="botao-voltar btn me-auto" data-valor="` + (i+1) +  `">
+                <button class="botao-voltar btn me-auto" data-valor="` + (i + 1) + `">
                     Voltar
                 </button>
-                <button class="botao-proxima btn" data-valor="` + (i+2) + `">
+                <button class="botao-proxima btn" data-valor="` + (i + 2) + `">
                     Próxima pergunta
                 </button>
             </div>
@@ -108,25 +108,47 @@ questoes.forEach(function callback(q, i) {
 
 $('.questao').hide();
 
+
 // Botoes de Voltar e Proxima Pergunta
 $('.botao-voltar, .botao-proxima').click(function () {
     var index = $(this).data('valor');
-    console.log(index);
-    console.log($('#questao-' + index));
-    $('#questao-' + index).show();
-    $('#questao-' + index).addClass('ativo');
-    $('.resultado').removeClass('d-flex');
-    $('.resultado').addClass('d-none');
-})
+    if ($('#questao-' + index).length == 0) {
+        $('main').append(
+            `
+            <div id="final" class="container position-relative my-5 d-flex justify-content-center align-items-center">
+                <span class="text-center">
+                    <h4>VOCÊ COMPLETOU!</h4>
+                    <br>
+                    <p>Pontuação: `+ acertos +`/7</p>
+                </span>
+                <a href="index.html" class="btn position-absolute">
+                    Refazer o teste
+                </a>
+            </div>
+            `
+        )
+    }
+    else {
+            $('#questao-' + index).show();
+            $('#questao-' + index).addClass('ativo');
+        }
+        $('.resultado').removeClass('d-flex');
+        $('.resultado').addClass('d-none');
+    })
 
 // Botoes de opcoes
 $('.opcao').click(function () {
-    console.log($(this).data('valor'));
+    var opcao = $(this).data('valor');
     var index = $('.ativo').data('valor');
+    if(opcao == questoes[index-1].resposta){
+        acertos++;
+        console.log(acertos);
+    }
     $('.ativo').hide();
     $('.ativo').removeClass('ativo');
     $('#resultado-questao-' + index).removeClass('d-none');
     $('#resultado-questao-' + index).addClass('d-flex');
+    
 })
 
 // Botao de iniciar
