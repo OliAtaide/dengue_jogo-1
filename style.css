@@ -18,7 +18,9 @@ body {
     background-color: var(--color2);
 }
 
-#final, .btn, .navbar {
+#final,
+.btn,
+.navbar {
     color: white;
 }
 
@@ -31,22 +33,25 @@ body {
     border: 3px solid var(--color3);
 }
 
-.container, .btn{
+.container,
+.btn {
     border-radius: 12px;
 }
 
 .titulo {
     border-radius: 12px 12px 0 0;
-    height: 100px;
+    min-height: 100px;
+    padding: 1em;
 }
 
-.btn, .titulo{
+.btn,
+.titulo {
     background-color: var(--color5);
     font-weight: 600;
     font-size: 32px;
 }
 
-.col .btn {
+.opcao {
     width: 360px;
     height: 240px;
 }
@@ -62,4 +67,50 @@ p {
 #final .btn {
     bottom: 1em;
     right: 1em;
+}
+
+footer img {
+    width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+
+    .questao,
+    .resultado {
+        height: auto !important;
+    }
+
+    footer {
+        position: relative !important;
+    }
+
+    footer img {
+        width: 100%;
+    }
+
+    .opcao {
+        width: 90% !important;
+        height: 120px;
+    }
+
+    .col-sm:first-child{
+        margin-bottom: 1em;
+    }
+
+    .col:first-child .btn {
+        margin-bottom: 1em;
+    }
+
+    .botao-voltar, .botao-proxima{
+        width: 100%;
+    }
+
+    .botao-voltar{
+        margin-bottom: 1em;
+    }
+
+    main{
+        margin-left: 1em;
+        margin-right: 1em;
+    }
 }

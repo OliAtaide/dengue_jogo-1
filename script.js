@@ -66,14 +66,14 @@ questoes.forEach(function callback(q, i) {
                 <span>` + q.questao + `</span>
             </div>
             <div class="row py-5">
-                <div class="col">
+                <div class="col-sm">
                     <button class="btn opcao" data-valor="MITO">
                         <span class="d-flex h-100 justify-content-center align-items-center">
                             MITO
                         </span>
                     </button>
                 </div>
-                <div class="col">
+                <div class="col-sm">
                     <button class="btn opcao" data-valor="VERDADE">
                         <span class="d-flex h-100 justify-content-center align-items-center">
                             VERDADE
@@ -93,7 +93,7 @@ questoes.forEach(function callback(q, i) {
                     ` + q.texto + `
                 </p>
             </div>
-            <div class="d-flex">
+            <div class="d-sm-flex">
                 <button class="botao-voltar btn me-auto" data-valor="` + (i + 1) + `">
                     Voltar
                 </button>
