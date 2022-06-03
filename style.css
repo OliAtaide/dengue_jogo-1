@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
     --color1: #B96C2C;
     --color2: #EAB95D;
     --color3: #FFEDB5;
     --color4: #ea9f44;
     --color5: #F66B3B;
+}
+
+*{
+    font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -49,6 +55,12 @@ body {
     background-color: var(--color5);
     font-weight: 600;
     font-size: 32px;
+}
+
+#iniciar p{
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
 }
 
 .opcao {
